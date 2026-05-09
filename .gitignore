@@ -21,6 +21,7 @@ frontend/.vite/
 # Uploads & generated output
 backend/uploads/
 samples/
+output/
 output/MultiModal_GraphRAG.pptx
 output/screenshots/
 
