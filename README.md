@@ -1,5 +1,8 @@
 # MultiModal Graph RAG
 
+<p align="center"><img src="docs/flow.svg" alt="Animated MultiModal Graph RAG pipeline: Upload → Detect → Embed → Store → Retrieve → Answer" width="100%"/></p>
+<p align="center"><sub>10-second tour: Upload → Detect → Embed → Store → Retrieve → Answer</sub></p>
+
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python) ![FastAPI](https://img.shields.io/badge/FastAPI-backend-009688?logo=fastapi) ![React](https://img.shields.io/badge/React-Vite-61dafb?logo=react) ![Docker](https://img.shields.io/badge/Docker-compose-2496ed?logo=docker) ![License](https://img.shields.io/badge/License-MIT-green)
 
 Production-style Retrieval Augmented Generation system with Knowledge Graph support — processes text, images, audio, and video using Groq's fast inference API.
