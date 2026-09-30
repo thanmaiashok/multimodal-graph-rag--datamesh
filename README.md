@@ -6,28 +6,28 @@
 
 <p align="center"><img src="docs/px3/features.svg" width="100%" alt="Key features"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="architecture"></a>
 <h2><img src="docs/px3/h2-architecture.svg" width="100%" alt="Architecture"/></h2>
 
 <p align="center"><img src="docs/px3/c-01.svg" width="100%" alt="code: User → React Frontend → FastAPI Backend │ ┌───────────────┼───────────────┐ ▼ ▼ ▼ ChromaDB Neo4j Groq API (vector store) (graph store) (LLM + Whisper) │ │ └────"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="tech-stack"></a>
 <h2><img src="docs/px3/h2-tech-stack.svg" width="100%" alt="Tech Stack"/></h2>
 
 <p align="center"><img src="docs/px3/t-01.svg" width="100%" alt="Layer | Tech Frontend | React + Vite + Tailwind CSS Backend | FastAPI + Python 3.11 Vector DB | ChromaDB Graph DB | Neo4j 5.15 LLM | Groq llama-3.1-8b-instant Audio | Groq whisper-large-v3 Text Embed | sentence-transformers/all-MiniLM-L6-v2 Image Embed | openai/clip-vit-base-patch32 Video | ffmpeg -&gt; audio extraction"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="pipeline"></a>
 <h2><img src="docs/px3/h2-pipeline.svg" width="100%" alt="Pipeline"/></h2>
 
 <p align="center"><img src="docs/px3/t-02.svg" width="100%" alt="Upload -&gt; file type detected -&gt; modality-specific processing Text (PDF/TXT/MD) -&gt; PyMuPDF -&gt; chunked -&gt; MiniLM embeddings -&gt; ChromaDB Image -&gt; CLIP embeddings -&gt; ChromaDB image collection Audio -&gt; Groq Whisper -&gt; transcript -&gt; MiniLM embeddings -&gt; ChromaDB Video -&gt; ffmpeg -&gt; audio -&gt; Groq Whisper -&gt; same as audio Entity Extraction -&gt; Groq LLM -&gt; entities + relationships -&gt; Neo4j Query -&gt; embed -&gt; vector search + graph traversal -&gt; Groq LLM -&gt; streamed response"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="quick-start"></a>
 <h2><img src="docs/px3/h2-quick-start.svg" width="100%" alt="Quick Start"/></h2>
@@ -49,7 +49,7 @@
 
 <p align="center"><img src="docs/px3/t-04.svg" width="100%" alt="Service | URL Frontend | http://localhost:3000 Backend API | http://localhost:8000 API Docs | http://localhost:8000/docs Neo4j Browser | http://localhost:7474 ChromaDB | http://localhost:8001"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="api-reference"></a>
 <h2><img src="docs/px3/h2-api-reference.svg" width="100%" alt="API Reference"/></h2>
@@ -79,27 +79,27 @@
 
 <p align="center"><img src="docs/px3/c-06.svg" width="100%" alt="code: curl http://localhost:8000/api/graph "/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="local-development-without-docker"></a>
 <h2><img src="docs/px3/h2-local-development-without-docker.svg" width="100%" alt="Local Development (without Docker)"/></h2>
 
 <p align="center"><img src="docs/px3/c-07.svg" width="100%" alt="code: # Backend cd backend python -m venv venv &amp;&amp; source venv/bin/activate pip install -r requirements.txt # Start ChromaDB and Neo4j separately, then: uvicorn main:a"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="environment-variables"></a>
 <h2><img src="docs/px3/h2-environment-variables.svg" width="100%" alt="Environment Variables"/></h2>
 
 <p align="center"><img src="docs/px3/t-09.svg" width="100%" alt="Variable | Default | Description GROQ_API_KEY | required | Groq API key NEO4J_URI | bolt://neo4j:7687 | Neo4j connection NEO4J_USER | neo4j | Neo4j username NEO4J_PASSWORD | password123 | Neo4j password CHROMADB_HOST | chromadb | ChromaDB host CHROMADB_PORT | 8000 | ChromaDB port"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <a id="features"></a>
 <h2><img src="docs/px3/h2-features.svg" width="100%" alt="Features"/></h2>
 
 <p align="center"><img src="docs/px3/t-10.svg" width="100%" alt="Multi-modal upload: PDF, TXT, MD, JPG, PNG, GIF, WEBP, MP3, WAV, M4A, MP4, MOV, AVI Streaming chat responses (SSE) Source citations with relevance scores Interactive knowledge graph visualization (force-directed) Hybrid retrieval: vector similarity + graph traversal Conversation history (last 6 turns) Cross-modal search (text query -&gt; image results)"/></p>
 
-<p align="center"><img src="docs/px3/gap.svg" width="1" height="16" alt=""/></p>
+<p align="center"><img src="docs/px3/divider.svg" width="100%" alt=""/></p>
 
 <p align="center"><a href="https://github.com/thanmaiashok"><img src="docs/px3/footer.svg" width="100%" alt="Built by Thanmai A, founder of FoxynAI"/></a></p>
