@@ -9,6 +9,11 @@
 <a id="architecture"></a>
 <h2><img src="docs/mc/h2-architecture.svg" width="100%" alt="Architecture"/></h2>
 
+<p align="center"><img src="docs/mc/c-01.svg" width="100%" alt="code: User → React Frontend → FastAPI Backend │ ┌───────────────┼───────────────┐ ▼ ▼ ▼ ChromaDB Neo4j Groq API (vector store) (graph store) (LLM + Whisper) │ │ └────"/></p>
+
+<details>
+<summary>Copy as text</summary>
+
 ```
 User → React Frontend → FastAPI Backend
                               │
@@ -22,6 +27,8 @@ User → React Frontend → FastAPI Backend
                        │
                    LLM Response
 ```
+
+</details>
 
 <a id="tech-stack"></a>
 <h2><img src="docs/mc/h2-tech-stack.svg" width="100%" alt="Tech Stack"/></h2>
@@ -46,6 +53,11 @@ User → React Frontend → FastAPI Backend
 <a id="setup"></a>
 <h3><img src="docs/mc/h3-setup.svg" width="100%" alt="Setup"/></h3>
 
+<p align="center"><img src="docs/mc/c-02.svg" width="100%" alt="code: # Clone and enter project git clone https://github.com/thanmaiashok/multimodal-graph-rag--datamesh.git cd multimodal-graph-rag--datamesh # Copy env and add your"/></p>
+
+<details>
+<summary>Copy as text</summary>
+
 ```bash
 # Clone and enter project
 git clone https://github.com/thanmaiashok/multimodal-graph-rag--datamesh.git
@@ -62,6 +74,8 @@ docker compose up --build
 # Wait ~2 minutes for first build (downloads ML models)
 ```
 
+</details>
+
 <a id="access"></a>
 <h3><img src="docs/mc/h3-access.svg" width="100%" alt="Access"/></h3>
 
@@ -75,12 +89,24 @@ docker compose up --build
 
 <p align="center"><img src="docs/mc/t-05.svg" width="100%" alt="Upload a file for processing."/></p>
 
+<p align="center"><img src="docs/mc/c-03.svg" width="100%" alt="code: curl -X POST http://localhost:8000/api/upload \ -F &quot;file=@document.pdf&quot; "/></p>
+
+<details>
+<summary>Copy as text</summary>
+
 ```bash
 curl -X POST http://localhost:8000/api/upload \
   -F "file=@document.pdf"
 ```
 
+</details>
+
 <p align="center"><img src="docs/mc/t-06.svg" width="100%" alt="Response:"/></p>
+
+<p align="center"><img src="docs/mc/c-04.svg" width="100%" alt="code: { &quot;file_id&quot;: &quot;uuid&quot;, &quot;filename&quot;: &quot;document.pdf&quot;, &quot;modality&quot;: &quot;text&quot;, &quot;status&quot;: &quot;processed&quot;, &quot;entities_extracted&quot;: 12, &quot;chunks_indexed&quot;: 34 } "/></p>
+
+<details>
+<summary>Copy as text</summary>
 
 ```json
 {
@@ -93,10 +119,17 @@ curl -X POST http://localhost:8000/api/upload \
 }
 ```
 
+</details>
+
 <a id="post-apichat"></a>
 <h3><img src="docs/mc/h3-post-api-chat.svg" width="100%" alt="POST /api/chat"/></h3>
 
 <p align="center"><img src="docs/mc/t-07.svg" width="100%" alt="Send a query (SSE streaming response)."/></p>
+
+<p align="center"><img src="docs/mc/c-05.svg" width="100%" alt="code: curl -X POST http://localhost:8000/api/chat \ -H &quot;Content-Type: application/json&quot; \ -d &#x27;{&quot;message&quot;: &quot;What are the key concepts?&quot;, &quot;modality&quot;: &quot;text&quot;, &quot;history&quot;:"/></p>
+
+<details>
+<summary>Copy as text</summary>
 
 ```bash
 curl -X POST http://localhost:8000/api/chat \
@@ -104,17 +137,31 @@ curl -X POST http://localhost:8000/api/chat \
   -d '{"message": "What are the key concepts?", "modality": "text", "history": []}'
 ```
 
+</details>
+
 <a id="get-apigraph"></a>
 <h3><img src="docs/mc/h3-get-api-graph.svg" width="100%" alt="GET /api/graph"/></h3>
 
 <p align="center"><img src="docs/mc/t-08.svg" width="100%" alt="Get knowledge graph nodes and edges."/></p>
 
+<p align="center"><img src="docs/mc/c-06.svg" width="100%" alt="code: curl http://localhost:8000/api/graph "/></p>
+
+<details>
+<summary>Copy as text</summary>
+
 ```bash
 curl http://localhost:8000/api/graph
 ```
 
+</details>
+
 <a id="local-development-without-docker"></a>
 <h2><img src="docs/mc/h2-local-development-without-docker.svg" width="100%" alt="Local Development (without Docker)"/></h2>
+
+<p align="center"><img src="docs/mc/c-07.svg" width="100%" alt="code: # Backend cd backend python -m venv venv &amp;&amp; source venv/bin/activate pip install -r requirements.txt # Start ChromaDB and Neo4j separately, then: uvicorn main:a"/></p>
+
+<details>
+<summary>Copy as text</summary>
 
 ```bash
 # Backend
@@ -129,6 +176,8 @@ cd frontend
 npm install
 npm run dev
 ```
+
+</details>
 
 <a id="environment-variables"></a>
 <h2><img src="docs/mc/h2-environment-variables.svg" width="100%" alt="Environment Variables"/></h2>
