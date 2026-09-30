@@ -26,28 +26,12 @@ User → React Frontend → FastAPI Backend
 <a id="tech-stack"></a>
 <h2><img src="docs/mc/h2-tech-stack.svg" width="100%" alt="Tech Stack"/></h2>
 
-| Layer | Tech |
-|---|---|
-| Frontend | React + Vite + Tailwind CSS |
-| Backend | FastAPI + Python 3.11 |
-| Vector DB | ChromaDB |
-| Graph DB | Neo4j 5.15 |
-| LLM | Groq `llama-3.1-8b-instant` |
-| Audio | Groq `whisper-large-v3` |
-| Text Embed | `sentence-transformers/all-MiniLM-L6-v2` |
-| Image Embed | `openai/clip-vit-base-patch32` |
-| Video | ffmpeg → audio extraction |
+<p align="center"><img src="docs/mc/t-01.svg" width="100%" alt="Layer | Tech Frontend | React + Vite + Tailwind CSS Backend | FastAPI + Python 3.11 Vector DB | ChromaDB Graph DB | Neo4j 5.15 LLM | Groq llama-3.1-8b-instant Audio | Groq whisper-large-v3 Text Embed | sentence-transformers/all-MiniLM-L6-v2 Image Embed | openai/clip-vit-base-patch32 Video | ffmpeg -&gt; audio extraction"/></p>
 
 <a id="pipeline"></a>
 <h2><img src="docs/mc/h2-pipeline.svg" width="100%" alt="Pipeline"/></h2>
 
-1. **Upload** → file type detected → modality-specific processing
-2. **Text** (PDF/TXT/MD) → PyMuPDF → chunked → MiniLM embeddings → ChromaDB
-3. **Image** → CLIP embeddings → ChromaDB image collection
-4. **Audio** → Groq Whisper → transcript → MiniLM embeddings → ChromaDB
-5. **Video** → ffmpeg → audio → Groq Whisper → same as audio
-6. **Entity Extraction** → Groq LLM → entities + relationships → Neo4j
-7. **Query** → embed → vector search + graph traversal → Groq LLM → streamed response
+<p align="center"><img src="docs/mc/t-02.svg" width="100%" alt="Upload -&gt; file type detected -&gt; modality-specific processing Text (PDF/TXT/MD) -&gt; PyMuPDF -&gt; chunked -&gt; MiniLM embeddings -&gt; ChromaDB Image -&gt; CLIP embeddings -&gt; ChromaDB image collection Audio -&gt; Groq Whisper -&gt; transcript -&gt; MiniLM embeddings -&gt; ChromaDB Video -&gt; ffmpeg -&gt; audio -&gt; Groq Whisper -&gt; same as audio Entity Extraction -&gt; Groq LLM -&gt; entities + relationships -&gt; Neo4j Query -&gt; embed -&gt; vector search + graph traversal -&gt; Groq LLM -&gt; streamed response"/></p>
 
 <a id="quick-start"></a>
 <h2><img src="docs/mc/h2-quick-start.svg" width="100%" alt="Quick Start"/></h2>
@@ -55,8 +39,9 @@ User → React Frontend → FastAPI Backend
 <a id="prerequisites"></a>
 <h3><img src="docs/mc/h3-prerequisites.svg" width="100%" alt="Prerequisites"/></h3>
 
-- Docker + Docker Compose
-- Groq API key (free at [console.groq.com](https://console.groq.com))
+<p align="center"><img src="docs/mc/t-03.svg" width="100%" alt="Docker + Docker Compose Groq API key (free at console.groq.com)"/></p>
+
+<p align="center"><a href="https://console.groq.com"><img src="docs/mc/link-01.svg" height="34" alt="console.groq.com"/></a></p>
 
 <a id="setup"></a>
 <h3><img src="docs/mc/h3-setup.svg" width="100%" alt="Setup"/></h3>
@@ -80,13 +65,7 @@ docker compose up --build
 <a id="access"></a>
 <h3><img src="docs/mc/h3-access.svg" width="100%" alt="Access"/></h3>
 
-| Service | URL |
-|---|---|
-| Frontend | http://localhost:3000 |
-| Backend API | http://localhost:8000 |
-| API Docs | http://localhost:8000/docs |
-| Neo4j Browser | http://localhost:7474 |
-| ChromaDB | http://localhost:8001 |
+<p align="center"><img src="docs/mc/t-04.svg" width="100%" alt="Service | URL Frontend | http://localhost:3000 Backend API | http://localhost:8000 API Docs | http://localhost:8000/docs Neo4j Browser | http://localhost:7474 ChromaDB | http://localhost:8001"/></p>
 
 <a id="api-reference"></a>
 <h2><img src="docs/mc/h2-api-reference.svg" width="100%" alt="API Reference"/></h2>
@@ -94,14 +73,15 @@ docker compose up --build
 <a id="post-apiupload"></a>
 <h3><img src="docs/mc/h3-post-api-upload.svg" width="100%" alt="POST /api/upload"/></h3>
 
-Upload a file for processing.
+<p align="center"><img src="docs/mc/t-05.svg" width="100%" alt="Upload a file for processing."/></p>
 
 ```bash
 curl -X POST http://localhost:8000/api/upload \
   -F "file=@document.pdf"
 ```
 
-Response:
+<p align="center"><img src="docs/mc/t-06.svg" width="100%" alt="Response:"/></p>
+
 ```json
 {
   "file_id": "uuid",
@@ -116,7 +96,7 @@ Response:
 <a id="post-apichat"></a>
 <h3><img src="docs/mc/h3-post-api-chat.svg" width="100%" alt="POST /api/chat"/></h3>
 
-Send a query (SSE streaming response).
+<p align="center"><img src="docs/mc/t-07.svg" width="100%" alt="Send a query (SSE streaming response)."/></p>
 
 ```bash
 curl -X POST http://localhost:8000/api/chat \
@@ -127,7 +107,7 @@ curl -X POST http://localhost:8000/api/chat \
 <a id="get-apigraph"></a>
 <h3><img src="docs/mc/h3-get-api-graph.svg" width="100%" alt="GET /api/graph"/></h3>
 
-Get knowledge graph nodes and edges.
+<p align="center"><img src="docs/mc/t-08.svg" width="100%" alt="Get knowledge graph nodes and edges."/></p>
 
 ```bash
 curl http://localhost:8000/api/graph
@@ -153,24 +133,11 @@ npm run dev
 <a id="environment-variables"></a>
 <h2><img src="docs/mc/h2-environment-variables.svg" width="100%" alt="Environment Variables"/></h2>
 
-| Variable | Default | Description |
-|---|---|---|
-| `GROQ_API_KEY` | required | Groq API key |
-| `NEO4J_URI` | `bolt://neo4j:7687` | Neo4j connection |
-| `NEO4J_USER` | `neo4j` | Neo4j username |
-| `NEO4J_PASSWORD` | `password123` | Neo4j password |
-| `CHROMADB_HOST` | `chromadb` | ChromaDB host |
-| `CHROMADB_PORT` | `8000` | ChromaDB port |
+<p align="center"><img src="docs/mc/t-09.svg" width="100%" alt="Variable | Default | Description GROQ_API_KEY | required | Groq API key NEO4J_URI | bolt://neo4j:7687 | Neo4j connection NEO4J_USER | neo4j | Neo4j username NEO4J_PASSWORD | password123 | Neo4j password CHROMADB_HOST | chromadb | ChromaDB host CHROMADB_PORT | 8000 | ChromaDB port"/></p>
 
 <a id="features"></a>
 <h2><img src="docs/mc/h2-features.svg" width="100%" alt="Features"/></h2>
 
-- Multi-modal upload: PDF, TXT, MD, JPG, PNG, GIF, WEBP, MP3, WAV, M4A, MP4, MOV, AVI
-- Streaming chat responses (SSE)
-- Source citations with relevance scores
-- Interactive knowledge graph visualization (force-directed)
-- Hybrid retrieval: vector similarity + graph traversal
-- Conversation history (last 6 turns)
-- Cross-modal search (text query → image results)
+<p align="center"><img src="docs/mc/t-10.svg" width="100%" alt="Multi-modal upload: PDF, TXT, MD, JPG, PNG, GIF, WEBP, MP3, WAV, M4A, MP4, MOV, AVI Streaming chat responses (SSE) Source citations with relevance scores Interactive knowledge graph visualization (force-directed) Hybrid retrieval: vector similarity + graph traversal Conversation history (last 6 turns) Cross-modal search (text query -&gt; image results)"/></p>
 
 <p align="center"><a href="https://github.com/thanmaiashok"><img src="docs/mc/footer.svg" width="100%" alt="Built by Thanmai A, founder of FoxynAI"/></a></p>
