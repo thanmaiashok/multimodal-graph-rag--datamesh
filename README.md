@@ -1,4 +1,5 @@
 <p align="center"><img src="docs/flow.svg" alt="Animated MultiModal Graph RAG pipeline: Upload → Detect → Embed → Store → Retrieve → Answer" width="100%"/></p>
+
 <p align="center"><sub>10-second tour: Upload → Detect → Embed → Store → Retrieve → Answer</sub></p>
 
 <p align="center"><img src="docs/mc/intro.svg" width="100%" alt="Production-style Retrieval Augmented Generation with a knowledge graph. Processes text, images, audio and video using Groq&#x27;s fast inference API."/></p>
@@ -53,6 +54,7 @@ User → React Frontend → FastAPI Backend
 
 <a id="prerequisites"></a>
 <h3><img src="docs/mc/h3-prerequisites.svg" width="100%" alt="Prerequisites"/></h3>
+
 - Docker + Docker Compose
 - Groq API key (free at [console.groq.com](https://console.groq.com))
 
@@ -91,6 +93,7 @@ docker compose up --build
 
 <a id="post-apiupload"></a>
 <h3><img src="docs/mc/h3-post-api-upload.svg" width="100%" alt="POST /api/upload"/></h3>
+
 Upload a file for processing.
 
 ```bash
@@ -112,6 +115,7 @@ Response:
 
 <a id="post-apichat"></a>
 <h3><img src="docs/mc/h3-post-api-chat.svg" width="100%" alt="POST /api/chat"/></h3>
+
 Send a query (SSE streaming response).
 
 ```bash
@@ -122,6 +126,7 @@ curl -X POST http://localhost:8000/api/chat \
 
 <a id="get-apigraph"></a>
 <h3><img src="docs/mc/h3-get-api-graph.svg" width="100%" alt="GET /api/graph"/></h3>
+
 Get knowledge graph nodes and edges.
 
 ```bash
