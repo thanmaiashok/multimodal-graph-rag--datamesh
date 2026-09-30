@@ -1,13 +1,12 @@
-# MultiModal Graph RAG
-
 <p align="center"><img src="docs/flow.svg" alt="Animated MultiModal Graph RAG pipeline: Upload → Detect → Embed → Store → Retrieve → Answer" width="100%"/></p>
 <p align="center"><sub>10-second tour: Upload → Detect → Embed → Store → Retrieve → Answer</sub></p>
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python) ![FastAPI](https://img.shields.io/badge/FastAPI-backend-009688?logo=fastapi) ![React](https://img.shields.io/badge/React-Vite-61dafb?logo=react) ![Docker](https://img.shields.io/badge/Docker-compose-2496ed?logo=docker) ![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center"><img src="docs/mc/intro.svg" width="100%" alt="Production-style Retrieval Augmented Generation with a knowledge graph. Processes text, images, audio and video using Groq&#x27;s fast inference API."/></p>
 
-Production-style Retrieval Augmented Generation system with Knowledge Graph support — processes text, images, audio, and video using Groq's fast inference API.
+<p align="center"><img src="docs/mc/features.svg" width="100%" alt="Key features"/></p>
 
-## Architecture
+<a id="architecture"></a>
+<h2><img src="docs/mc/h2-architecture.svg" width="100%" alt="Architecture"/></h2>
 
 ```
 User → React Frontend → FastAPI Backend
@@ -23,7 +22,8 @@ User → React Frontend → FastAPI Backend
                    LLM Response
 ```
 
-## Tech Stack
+<a id="tech-stack"></a>
+<h2><img src="docs/mc/h2-tech-stack.svg" width="100%" alt="Tech Stack"/></h2>
 
 | Layer | Tech |
 |---|---|
@@ -37,7 +37,8 @@ User → React Frontend → FastAPI Backend
 | Image Embed | `openai/clip-vit-base-patch32` |
 | Video | ffmpeg → audio extraction |
 
-## Pipeline
+<a id="pipeline"></a>
+<h2><img src="docs/mc/h2-pipeline.svg" width="100%" alt="Pipeline"/></h2>
 
 1. **Upload** → file type detected → modality-specific processing
 2. **Text** (PDF/TXT/MD) → PyMuPDF → chunked → MiniLM embeddings → ChromaDB
@@ -47,13 +48,16 @@ User → React Frontend → FastAPI Backend
 6. **Entity Extraction** → Groq LLM → entities + relationships → Neo4j
 7. **Query** → embed → vector search + graph traversal → Groq LLM → streamed response
 
-## Quick Start
+<a id="quick-start"></a>
+<h2><img src="docs/mc/h2-quick-start.svg" width="100%" alt="Quick Start"/></h2>
 
-### Prerequisites
+<a id="prerequisites"></a>
+<h3><img src="docs/mc/h3-prerequisites.svg" width="100%" alt="Prerequisites"/></h3>
 - Docker + Docker Compose
 - Groq API key (free at [console.groq.com](https://console.groq.com))
 
-### Setup
+<a id="setup"></a>
+<h3><img src="docs/mc/h3-setup.svg" width="100%" alt="Setup"/></h3>
 
 ```bash
 # Clone and enter project
@@ -71,7 +75,8 @@ docker compose up --build
 # Wait ~2 minutes for first build (downloads ML models)
 ```
 
-### Access
+<a id="access"></a>
+<h3><img src="docs/mc/h3-access.svg" width="100%" alt="Access"/></h3>
 
 | Service | URL |
 |---|---|
@@ -81,9 +86,11 @@ docker compose up --build
 | Neo4j Browser | http://localhost:7474 |
 | ChromaDB | http://localhost:8001 |
 
-## API Reference
+<a id="api-reference"></a>
+<h2><img src="docs/mc/h2-api-reference.svg" width="100%" alt="API Reference"/></h2>
 
-### POST /api/upload
+<a id="post-apiupload"></a>
+<h3><img src="docs/mc/h3-post-api-upload.svg" width="100%" alt="POST /api/upload"/></h3>
 Upload a file for processing.
 
 ```bash
@@ -103,7 +110,8 @@ Response:
 }
 ```
 
-### POST /api/chat
+<a id="post-apichat"></a>
+<h3><img src="docs/mc/h3-post-api-chat.svg" width="100%" alt="POST /api/chat"/></h3>
 Send a query (SSE streaming response).
 
 ```bash
@@ -112,14 +120,16 @@ curl -X POST http://localhost:8000/api/chat \
   -d '{"message": "What are the key concepts?", "modality": "text", "history": []}'
 ```
 
-### GET /api/graph
+<a id="get-apigraph"></a>
+<h3><img src="docs/mc/h3-get-api-graph.svg" width="100%" alt="GET /api/graph"/></h3>
 Get knowledge graph nodes and edges.
 
 ```bash
 curl http://localhost:8000/api/graph
 ```
 
-## Local Development (without Docker)
+<a id="local-development-without-docker"></a>
+<h2><img src="docs/mc/h2-local-development-without-docker.svg" width="100%" alt="Local Development (without Docker)"/></h2>
 
 ```bash
 # Backend
@@ -135,7 +145,8 @@ npm install
 npm run dev
 ```
 
-## Environment Variables
+<a id="environment-variables"></a>
+<h2><img src="docs/mc/h2-environment-variables.svg" width="100%" alt="Environment Variables"/></h2>
 
 | Variable | Default | Description |
 |---|---|---|
@@ -146,7 +157,8 @@ npm run dev
 | `CHROMADB_HOST` | `chromadb` | ChromaDB host |
 | `CHROMADB_PORT` | `8000` | ChromaDB port |
 
-## Features
+<a id="features"></a>
+<h2><img src="docs/mc/h2-features.svg" width="100%" alt="Features"/></h2>
 
 - Multi-modal upload: PDF, TXT, MD, JPG, PNG, GIF, WEBP, MP3, WAV, M4A, MP4, MOV, AVI
 - Streaming chat responses (SSE)
@@ -155,3 +167,5 @@ npm run dev
 - Hybrid retrieval: vector similarity + graph traversal
 - Conversation history (last 6 turns)
 - Cross-modal search (text query → image results)
+
+<p align="center"><a href="https://github.com/thanmaiashok"><img src="docs/mc/footer.svg" width="100%" alt="Built by Thanmai A, founder of FoxynAI"/></a></p>
