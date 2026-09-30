@@ -1,5 +1,7 @@
 # MultiModal Graph RAG
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python) ![FastAPI](https://img.shields.io/badge/FastAPI-backend-009688?logo=fastapi) ![React](https://img.shields.io/badge/React-Vite-61dafb?logo=react) ![Docker](https://img.shields.io/badge/Docker-compose-2496ed?logo=docker) ![License](https://img.shields.io/badge/License-MIT-green)
+
 Production-style Retrieval Augmented Generation system with Knowledge Graph support — processes text, images, audio, and video using Groq's fast inference API.
 
 ## Architecture
@@ -52,8 +54,8 @@ User → React Frontend → FastAPI Backend
 
 ```bash
 # Clone and enter project
-git clone <your-repo>
-cd rag
+git clone https://github.com/thanmaiashok/multimodal-graph-rag--datamesh.git
+cd multimodal-graph-rag--datamesh
 
 # Copy env and add your Groq key
 cp .env.example .env
